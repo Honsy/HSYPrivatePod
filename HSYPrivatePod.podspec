@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fantastichong' => 'hongshaoy@outlook.com' }
-  s.source           = { :git => 'https://github.com/fantastichong/HSYPrivatePod.git', :tag => s.version.to_s }
+  s.source           = { :git => 'http://192.168.0.53/hsy152115/PrivatePod', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   #   'HSYPrivatePod' => ['HSYPrivatePod/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'MapKit','Foundation'
+  s.dependency 'AFNetworking', '~> 3.2.1'
 end
