@@ -122,4 +122,16 @@
  */
 +(UIImage *)imageFromImage:(UIImage *)image inRect:(CGRect)rect;
 
+/**
+ 绘制成功
+ */
++ (void)drawCheckmark;
+/**
+ 绘制警告
+ */
++ (void)drawWarning;
+/**
+ 绘制提示
+ */
++ (void)drawInfo;
 @end

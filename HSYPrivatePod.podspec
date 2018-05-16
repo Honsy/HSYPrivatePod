@@ -32,11 +32,10 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'HSYPrivatePod/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'HSYPrivatePod' => ['HSYPrivatePod/Assets/*.png']
-  # }
+  s.resource = "HSYPrivatePod/HSYPrivatePod.bundle"
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit','Foundation'
   s.dependency 'AFNetworking', '~> 3.2.1'
+  s.dependency 'MBProgressHUD', '~> 1.0.0'
 end

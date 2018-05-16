@@ -20,4 +20,6 @@
 
 #import "HSYUIComponent.h"
 
+#import "HSYTools.h"
+
 #endif /* HSYPrivatePod_h */
