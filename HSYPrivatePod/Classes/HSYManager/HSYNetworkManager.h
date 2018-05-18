@@ -236,7 +236,7 @@ typedef NSURLSessionTask HSYURLSessionTask;
  @param successBlock 成功回调
  @param failBlock 失败回调
  @param codeError 错误码失败处理
- @param showLoading 是否显示加载框
+ @param token 是否显示加载框
  */
 -(void)POST:(NSString *)URL Parameters:(id)parameters Success:(HSYResponseSuccess)successBlock CodeError:(HSYResponseCodeError)codeError Failure:(HSYResponseFail)failBlock Token:(BOOL)token;
 

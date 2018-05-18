@@ -19,6 +19,13 @@ id <LGBridgeProtocol>LG_bridge = [MGJRouter objectForURL:LG_BRIDGE_OBJECT];
 
 @protocol LGBridgeProtocol <NSObject>
 
+
+/**
+ 返回当前登录对象
+
+ @return LoginUserCenter
+ */
+-(id)loginUser;
 @end
 
 #endif /* LGBridgeProtocol_h */

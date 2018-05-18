@@ -26,7 +26,12 @@ static HSYNetworkManager *manager = nil;
 #pragma mark 单例对象
 + (instancetype)sharedNetworkManager {
     
-    return [[[self class] alloc]init];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[HSYNetworkManager alloc]init];
+    });
+    
+    return manager;
 
 }
 
@@ -614,6 +619,8 @@ static HSYNetworkManager *manager = nil;
         parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     }
     if (token) {
+        NSLog(@"ssss%@",[HSYNetworkManager sharedNetworkManager].accessToken);
+        
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }
@@ -631,7 +638,7 @@ static HSYNetworkManager *manager = nil;
                 successBlock(response);
             }
         }else{
-            codeError(response[@"data"][@"message"]);
+            codeError(response[@"message"]);
         }
         
     } failureBlock:^(NSError *error) {
@@ -647,7 +654,7 @@ static HSYNetworkManager *manager = nil;
     if (parameters) {
         parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     }
-    if (token) {
+    if (token) {        
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }

@@ -23,7 +23,8 @@
 }
 
 +(NSBundle *)private_bundle{
-    return [NSBundle bundleWithPath:[[NSBundle bundleForClass:[HSYBundle class]] pathForResource:@"HSYPrivatePod" ofType:@"bundle"]];
+    NSBundle *bundle = [NSBundle bundleForClass:[HSYBundle class]];
+    return bundle;
 }
 
 #pragma mark APP主要使用gif加载提示 无字
@@ -127,12 +128,13 @@
     HUD.labelFont = [UIFont systemFontOfSize:8];
     HUD.mode = MBProgressHUDModeCustomView;
     
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@1.jpg",imageName] inBundle:[MBProgressHUD private_bundle] compatibleWithTraitCollection:nil];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[MBProgressHUD private_bundle] pathForResource:[NSString stringWithFormat:@"%@1",imageName] ofType:@"jpg"]];
     UIImageView *animateGifView = [[UIImageView alloc]initWithImage:image];
     animateGifView.contentMode = UIViewContentModeScaleAspectFit;
     NSMutableArray *gifArray = [NSMutableArray array];
     for (int i = 1; i <= imageCounts; i ++) {
-        UIImage *images = [UIImage imageNamed:[NSString stringWithFormat:@"%@%d.jpg", imageName, i] inBundle:[MBProgressHUD private_bundle] compatibleWithTraitCollection:nil];
+        UIImage *images = [UIImage imageWithContentsOfFile:[[MBProgressHUD private_bundle] pathForResource:[NSString stringWithFormat:@"%@%d", imageName, i] ofType:@"jpg"]];
+
         [gifArray addObject:images];
     }
     

@@ -12,5 +12,7 @@
 #define LG_BRIDGE_OBJECT        @"/LGC:/LGBridge"
 //主界面加导航的
 #define LG_NAV             @"/LGC:/LGLoginNavigationController"
+//用户
+#define LG_USEINFO_OBJECT       @"/LGC:/LoginUserCenter"
 
 #endif /* LGBridgeMacros_h */

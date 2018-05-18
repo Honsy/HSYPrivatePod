@@ -5,7 +5,7 @@
 //  Created by 烽行意志 on 2018/5/16.
 //
 
-#import <MBProgressHUD/MBProgressHUD.h>
+#import "MBProgressHUD.h"
 
 
 typedef void (^HUDBlock)(MBProgressHUD * hud);
