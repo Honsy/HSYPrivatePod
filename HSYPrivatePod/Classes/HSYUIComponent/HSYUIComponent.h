@@ -8,7 +8,10 @@
 #ifndef HSYUIComponent_h
 #define HSYUIComponent_h
 
+
 #import "HSYUnderLineTF.h"
+
+#import "HSYLoginView.h"
 
 
 #endif /* HSYUIComponent_h */

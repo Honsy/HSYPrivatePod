@@ -63,5 +63,6 @@ typedef void (^IMLoginSucc)(void);
  @param fail 失败回调
  */
 -(void)imlogin:(NSString *)uid Usig:(NSString *)usig succ:(IMLoginSucc)succ fail:(IMFail)fail;
+
 @end
 #endif /* IMBridgeProtocol_h */

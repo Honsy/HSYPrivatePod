@@ -10,8 +10,10 @@
 
 //桥接
 #define IM_BRIDGE_OBJECT        @"/IMC:/IMBridge"
-//主界面加导航的
+//导航
 #define IM_NAV             @"/IMC:/IMNavigationController"
+//主界面加导航的
+#define IM_MAIN_NAV             @"/IMC:/Main/IMNavigationController"
 
 
 #endif /* IMBridgeMacros_h */

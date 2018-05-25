@@ -242,15 +242,15 @@ typedef NSURLSessionTask HSYURLSessionTask;
 
 /**
  POST请求
- 
+
  @param URL URL
  @param parameters 参数
  @param fileName 文件名
  @param imageData 图片字节流
- @param success 成功回调
+ @param successBlock 成功回调
  @param codeError 错误码失败处理
- @param failure 失败回调
- @param showLoading 是否显示加载框
+ @param failBlock 失败回调
+ @param token token
  */
 -(void)POST:(NSString *)URL Parameters:(id)parameters FileName:(NSString *)fileName ImageData:(NSData *)imageData Success:(HSYResponseSuccess)successBlock CodeError:(HSYResponseCodeError)codeError Failure:(HSYResponseFail)failBlock Token:(BOOL)token;
 
@@ -264,7 +264,6 @@ typedef NSURLSessionTask HSYURLSessionTask;
  @param successBlock 成功回调
  @param failBlock 失败回调
  @param codeError 错误码失败处理
- @param showLoading 是否显示加载框
  @param token Token
  */
 -(void)POST:(NSString *)URL Parameters:(id)parameters FileNames:(NSArray *)fileNames ImageArray:(NSArray<UIImage *> *)imageArray Success:(HSYResponseSuccess)successBlock CodeError:(HSYResponseCodeError)codeError Failure:(HSYResponseFail)failBlock  Token:(BOOL)token;
@@ -275,8 +274,8 @@ typedef NSURLSessionTask HSYURLSessionTask;
  
  @param URL URL
  @param parameters 参数
- @param fileNames 文件名数组
- @param imageArray 图片数组 <UIImage *>
+ @param fileName 文件名数组
+ @param imageData 图片数组 <UIImage *>
  @param successBlock 成功回调
  @param failBlock 失败回调
  @param token Token

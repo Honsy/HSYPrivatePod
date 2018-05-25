@@ -665,14 +665,20 @@ static HSYNetworkManager *manager = nil;
         
         if ([str isEqualToString:@"200"]) {
             //Data包含error 一概不处理
+            
             if (response[@"data"][@"error"]) {
-                codeError(response[@"data"][@"error"]);
+                if (codeError) {
+                    codeError(response[@"data"][@"error"]);
+                }
             }else{
-                
-                successBlock(response);
+                if (successBlock) {
+                    successBlock(response);
+                }
             }
         }else{
-            codeError(response[@"data"][@"message"]);
+            if (codeError) {
+                codeError(response[@"message"]);
+            }
         }
         
     } failureBlock:^(NSError *error) {

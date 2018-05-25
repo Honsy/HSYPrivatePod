@@ -10,13 +10,14 @@
 #include <pthread.h>
 #import <libkern/OSAtomic.h>
 #import <objc/message.h>
+#import <os/lock.h>
 
 @interface CLSafeMutableArray : NSObject
 {
 @protected
 //    pthread_mutex_t     _mutex;
     NSMutableArray      *_safeArray;
-    OSSpinLock          _lock;
+    os_unfair_lock_t          _lock;
 }
 
 @property (nonatomic, strong) NSMutableArray *safeArray;

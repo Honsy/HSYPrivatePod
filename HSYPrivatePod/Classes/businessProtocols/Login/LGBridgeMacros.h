@@ -14,5 +14,7 @@
 #define LG_NAV             @"/LGC:/LGLoginNavigationController"
 //用户
 #define LG_USEINFO_OBJECT       @"/LGC:/LoginUserCenter"
+//用户uid 特殊原因 多种地方包含uid对象 单独处理
+#define LG_USEINFO_OBJECT_ID       @"/LGC:/LoginUserCenter/Uid"
 
 #endif /* LGBridgeMacros_h */

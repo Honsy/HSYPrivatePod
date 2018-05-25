@@ -15,7 +15,7 @@
 #define NotEmpty(_ref)  (((_ref) != nil) && (![(_ref) isEqual:[NSNull null]]) && (![(_ref)isEqualToString:@""]))
 
 
-typedef void (^CommonVoidBlock)();
+typedef void (^CommonVoidBlock)(void);
 
 typedef void (^CommonBlock)(id selfPtr);
 

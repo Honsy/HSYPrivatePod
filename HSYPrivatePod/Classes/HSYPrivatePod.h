@@ -22,4 +22,6 @@
 
 #import "HSYTools.h"
 
+#import "HSYDataBase.h"
+
 #endif /* HSYPrivatePod_h */
