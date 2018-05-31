@@ -9,4 +9,7 @@
 
 @interface HSYViewController : UIViewController
 
+//空数据
+-(void)emptyDataForView:(id)view;
+
 @end

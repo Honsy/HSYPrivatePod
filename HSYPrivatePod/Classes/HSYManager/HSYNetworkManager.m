@@ -615,9 +615,10 @@ static HSYNetworkManager *manager = nil;
     
     NSMutableDictionary * parametersDic ;
 
-    if (parameters) {
-        parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
+    //服务端参数nil 出现415 服务端问题  防止后期会针对请求进行签名处理
+    parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    
+    
     if (token) {
         NSLog(@"ssss%@",[HSYNetworkManager sharedNetworkManager].accessToken);
         
@@ -626,19 +627,26 @@ static HSYNetworkManager *manager = nil;
         }
     }
     
-    [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypeGet urlString:URL parameters:parameters successBlock:^(id response) {
+    [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypeGet urlString:URL parameters:parametersDic successBlock:^(id response) {
         NSString * str = [NSString stringWithFormat:@"%@",response[@"code"]];
 
         if ([str isEqualToString:@"200"]) {
             //Data包含error 一概不处理
             if (response[@"data"][@"error"]) {
-                codeError(response[@"data"][@"error"]);
+                
+                if (codeError) {
+                    codeError(response[@"data"][@"error"]);
+                }
             }else{
                 
-                successBlock(response);
+                if (successBlock) {
+                    successBlock(response);
+                }
             }
         }else{
-            codeError(response[@"message"]);
+            if (codeError) {
+                codeError(response[@"message"]);
+            }
         }
         
     } failureBlock:^(NSError *error) {
@@ -651,16 +659,15 @@ static HSYNetworkManager *manager = nil;
     
     NSMutableDictionary * parametersDic ;
     
-    if (parameters) {
-        parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
+    parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+
     if (token) {        
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }
     }
     
-    [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypePost urlString:URL parameters:parameters successBlock:^(id response) {
+    [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypePost urlString:URL parameters:parametersDic successBlock:^(id response) {
         NSString * str = [NSString stringWithFormat:@"%@",response[@"code"]];
         
         if ([str isEqualToString:@"200"]) {
@@ -692,9 +699,8 @@ static HSYNetworkManager *manager = nil;
     
     NSMutableDictionary * parametersDic ;
     
-    if (parameters) {
-        parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
+    parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+
     if (token) {
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
@@ -731,9 +737,8 @@ static HSYNetworkManager *manager = nil;
     
     NSMutableDictionary * parametersDic ;
     
-    if (parameters) {
-        parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
+    parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+
     if (token) {
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
@@ -776,9 +781,8 @@ static HSYNetworkManager *manager = nil;
     //追加Token
     NSMutableDictionary * parametersDic ;
     
-    if (parameters) {
-        parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
+    parametersDic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+
     if (token) {
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];

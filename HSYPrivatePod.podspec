@@ -19,9 +19,10 @@ TODO: Add long description of the pod here.
 	
   s.resources = ['HSYPrivatePod/Assets/*.{png,jpg,xib,plist,jpeg}']
   s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit', 'MapKit','Foundation','AFNetworking', 'MBProgressHUD','FMDB','Masonry'
+  s.frameworks = 'UIKit', 'MapKit','Foundation','AFNetworking', 'MBProgressHUD','FMDB','Masonry','DZNEmptyDataSet'
   s.dependency 'AFNetworking','3.2.1'
   s.dependency 'MBProgressHUD','1.0.0'
   s.dependency 'FMDB', '2.7.2'
   s.dependency 'Masonry', '1.1.0'
+  s.dependency 'DZNEmptyDataSet', '1.8.1'
 end

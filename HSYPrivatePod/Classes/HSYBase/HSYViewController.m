@@ -7,6 +7,7 @@
 
 #import "HSYViewController.h"
 #import "HSYCategory.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 @interface HSYViewController ()
 
@@ -20,6 +21,25 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
+}
+
+-(void)emptyDataForView:(id)view{
+    if ([view isKindOfClass:[UITableView class]]) {
+        UITableView * tableView = view;
+        tableView.emptyDataSetDelegate = self;
+        tableView.emptyDataSetSource = self;
+    }else if ([view isKindOfClass:[UICollectionView class]]){
+        UICollectionView * collection = view;
+        collection.emptyDataSetSource = self;
+        collection.emptyDataSetDelegate = self;
+    }
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSBundle *bundle = [NSBundle bundleForClass:[HSYViewController class]];
+    
+    return [UIImage imageNamed:@"ic_empty" inBundle:bundle compatibleWithTraitCollection:nil];
 }
 
 - (void)didReceiveMemoryWarning {

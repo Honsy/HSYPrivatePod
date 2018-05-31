@@ -13,5 +13,7 @@
 
 #import "HSYLoginView.h"
 
+#import "HSYCarProvinceView.h"
+
 
 #endif /* HSYUIComponent_h */

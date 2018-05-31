@@ -19,5 +19,6 @@
 #import "CLSafeMutableArray.h"
 #import "RequestPageParamItem.h"
 #import "MBProgressHUD+HSY.h"
+#import "UIViewController+HSY.h"
 
 #endif /* HSYCategory_h */
