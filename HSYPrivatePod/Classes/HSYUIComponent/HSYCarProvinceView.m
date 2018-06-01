@@ -76,7 +76,7 @@
         self.frame = [UIScreen mainScreen].bounds;
 
         UIView * view = [[UIView alloc]initWithFrame:self.frame];
-                
+        
         view.userInteractionEnabled = YES;
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
@@ -121,6 +121,8 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    [self dismiss];
 
     if (_option) {
         _option(_provinces[indexPath.item]);

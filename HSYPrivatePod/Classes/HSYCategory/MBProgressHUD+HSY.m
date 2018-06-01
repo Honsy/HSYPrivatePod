@@ -104,16 +104,40 @@
     
     hud.mode = MBProgressHUDModeCustomView;
     
+//    self.bezelView.frame = CGRectMake(0, 0, 300, 300);
+    
+    UIView * customView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 300)];
+    
+    UIImageView * image = [[UIImageView alloc] initWithImage:icon];
+    
+    [customView addSubview:image];
+    
+    UILabel * messageL = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, 100, 30)];
+    
+    messageL.text = message;
+    
+    [customView addSubview:messageL];
+    
     hud.customView = [[UIImageView alloc] initWithImage:icon];
     // Looks a bit nicer if we make it square.
-    hud.square = YES;
+    hud.square = NO;
     // Optional label text.
     hud.label.text = message;
     
-    [hud hideAnimated:YES afterDelay:3.f];
+//    hud.label.frame = CGRectMake(0, 0, 100, 100);
+//
+    
+//    hud.backgroundView.frame = CGSizeMake(100, 100);
+//    hud.margin = 10.f;
+//    hud.yOffset = 15.f;
+    
+    hud.label.numberOfLines = 0;
+    
+    [hud hideAnimated:YES afterDelay:1.f];
     
     return hud;
 }
+
 
 //自定义gif动画加载
 + (MBProgressHUD *)showCustomAnimate:(NSString *)text imageName:(NSString *)imageName imageCounts:(NSInteger)imageCounts view:(UIView *)view{

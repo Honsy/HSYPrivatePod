@@ -14,13 +14,9 @@
 // 经纬度转字典
 +(NSDictionary *)stringWithLocation:(CLLocationCoordinate2D)location{
     
-    NSNumber    * longitudeNumber = [NSNumber numberWithDouble:location.longitude];
+    NSString    * longitude = [NSString stringWithFormat:@"%.6f",location.longitude];
     
-    NSNumber    * latitudeNumber = [NSNumber numberWithDouble:location.latitude];    
-    
-    NSString    * longitude = [NSString stringWithFormat:@"%@",longitudeNumber];
-    
-    NSString    * latitude = [NSString stringWithFormat:@"%@",latitudeNumber];
+    NSString    * latitude = [NSString stringWithFormat:@"%.6f",location.latitude];
 
     NSDictionary * locationDic = @{@"longitude":longitude,@"latitude":latitude};
     
