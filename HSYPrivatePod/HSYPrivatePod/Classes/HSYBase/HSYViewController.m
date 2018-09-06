@@ -21,6 +21,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
+//    self.edgesForExtendedLayout = UIRectEdgeNone;// 推荐使用
+
 }
 
 //空数据

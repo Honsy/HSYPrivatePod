@@ -20,6 +20,10 @@
 
 @implementation HSYEditorController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self configurationEditor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,6 +44,8 @@
     
     _WPEditorConfiguration.enableImageSelect =   ZSSRichTextEditorImageSelectPhotoLibrary |ZSSRichTextEditorImageSelectTakePhoto|ZSSRichTextEditorImageSelectInsertNetwork;
     
+//    [self configurationEditor];
+
     self.delegate = self;
     
     self.itemTintColor = [UIColor redColor];
@@ -53,6 +59,7 @@
 //    _viewModel.article_id = [[NSUUID UUID] UUIDString];
 //    _viewModel.userId = [[NSUUID UUID] UUIDString];
 //    _viewModel.createTime = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+    
 }
 
 -(void)configurationEditor{

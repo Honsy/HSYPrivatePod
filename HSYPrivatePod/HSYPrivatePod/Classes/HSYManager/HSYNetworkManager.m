@@ -627,6 +627,10 @@ static HSYNetworkManager *manager = nil;
         }
     }
     
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
+    
     [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypeGet urlString:URL parameters:parametersDic successBlock:^(id response) {
         NSString * str = [NSString stringWithFormat:@"%@",response[@"code"]];
 
@@ -667,6 +671,11 @@ static HSYNetworkManager *manager = nil;
         }
     }
     
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
+
+    
     [HSYNetworkManager HSY_requestWithType:HSYHttpRequestTypePost urlString:URL parameters:parametersDic successBlock:^(id response) {
         NSString * str = [NSString stringWithFormat:@"%@",response[@"code"]];
         
@@ -704,6 +713,10 @@ static HSYNetworkManager *manager = nil;
     if (page) {
         [parametersDic setObject:@{@"currentPage":@(page.pageIndex),@"pageNumber":@(page.pageSize)} forKey:@"page"];
     }
+    
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
     
     if (token) {
         if ([HSYNetworkManager sharedNetworkManager].accessToken) {
@@ -751,7 +764,9 @@ static HSYNetworkManager *manager = nil;
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }
     }
-    
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
     
     [[HSYNetworkManager sharedAFManager] POST:URL parameters:parametersDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/jpeg"];
@@ -789,6 +804,10 @@ static HSYNetworkManager *manager = nil;
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }
     }
+    
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
     
     [[HSYNetworkManager sharedAFManager] POST:URL parameters:parametersDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         for (int i = 0; i < imageArray.count; i++) {
@@ -833,6 +852,10 @@ static HSYNetworkManager *manager = nil;
             [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", [HSYNetworkManager sharedNetworkManager].accessToken] forHTTPHeaderField:@"Authorization"];
         }
     }
+    
+    //版本号 类型
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:@"1" forHTTPHeaderField:@"apptype"];
+    [[HSYNetworkManager sharedAFManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]  forHTTPHeaderField:@"version"];
     
     [[HSYNetworkManager sharedAFManager] POST:URL parameters:parametersDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:imageData name:fileName fileName:fileName mimeType:@"image/jpeg"];

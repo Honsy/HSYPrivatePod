@@ -24,4 +24,6 @@
 
 #import "HSYDataBase.h"
 
+#import "Weex.h"
+
 #endif /* HSYPrivatePod_h */
